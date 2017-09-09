@@ -1,0 +1,33 @@
+
+#signInForm{
+	border: 1px solid black;
+	background: #EBEBEB;
+	color: #2B3E50;
+	padding: 15px;
+	margin-bottom: 20px;
+}
+.signInRow {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.light-row {
+	background: #EBEBEB;
+	color: #2B3E50;
+	min-height: 500px;
+	vertical-align: middle;
+	padding-top: 100px;
+	padding bottom: 50px;
+}
+.light-row h4{
+	line-height: 150%;
+}
+.light-row img {
+	height: 150px;
+	margin-bottom: 15px;
+}
+
+.footer{
+	background: #151515;
+	color: #eee;
+	padding-top: 25px;
+}
