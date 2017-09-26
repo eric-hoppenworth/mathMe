@@ -34,4 +34,4 @@ Practice will come in two basic forms:
 
 ![alt text](https://github.com/eric-hoppenworth/mathMe/blob/master/images/screen1.PNG)
 ![alt text](https://github.com/eric-hoppenworth/mathMe/blob/master/images/screen2.PNG)
-![alt text](https://github.com/eric-hoppenworth/mathMe/blob/master/images/screen3.PNG
+![alt text](https://github.com/eric-hoppenworth/mathMe/blob/master/images/screen3.PNG)
