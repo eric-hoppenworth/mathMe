@@ -41,4 +41,4 @@ Practice will come in two basic forms:
 	[Trello Board](https://trello.com/b/4xqlA2ur).
 
 	A Generic version of my ToDo List can be found here
-	[ToDo](https://github.com/eric-hoppenworth/mathMe/blob/master/images/toDoList.txt).
+	[ToDo](/images/toDo.txt)
