@@ -32,6 +32,6 @@ Practice will come in two basic forms:
 
 ## Here are some screen shots
 
-![alt text](https://github.com/eric-hoppenworth/mathMe/images/screen1.png)
-![alt text](https://github.com/eric-hoppenworth/mathMe/images/screen2.png)
-![alt text](https://github.com/eric-hoppenworth/mathMe/images/screen3.png)
+![alt text](https://github.com/eric-hoppenworth/mathMe/blob/master/images/screen1.PNG)
+![alt text](https://github.com/eric-hoppenworth/mathMe/blob/master/images/screen2.PNG)
+![alt text](https://github.com/eric-hoppenworth/mathMe/blob/master/images/screen3.PNG
