@@ -42,4 +42,4 @@ If you want to check out my progress, visit my Trello board.
 [Trello Board](https://trello.com/b/4xqlA2ur).
 
 A Generic version of my ToDo List can be found here
-[ToDo](./images/toDo.txt)
+[ToDo](./images/toDoList.txt)
