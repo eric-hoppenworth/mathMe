@@ -1,0 +1,23 @@
+--Build basic design layout for pages:
+	1. Landing page for sign-in
+	2. Home page
+	3. About page
+	4. Tracking page
+
+--Write Copy
+
+--Build API for delivering math questions
+	* Division problems will give me issues (remainder?)
+
+--Set up Passport for authentication and security
+
+--Build Mongoose models.
+
+--refactor Hangman Game (build using react)
+
+--Build parts of the HTML page with React
+	*Possibly build entire app using React
+
+--Build User Stats Tracking (keep track of quizzes taken and number of questions correct.
+
+--Possibly implement 'Badges' or 'Rewards'
