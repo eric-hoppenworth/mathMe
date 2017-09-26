@@ -28,3 +28,10 @@ Practice will come in two basic forms:
   The quizzes can be presented in two formats:
   * Basic math problems presented on a page with no fluff.
   * Fun and engaging games that make you **want** to keep practicing. :tomato:
+
+
+## Here are some screen shots
+
+![alt text](https://github.com/eric-hoppenworth/mathMe/images/screen1.png)
+![alt text](https://github.com/eric-hoppenworth/mathMe/images/screen2.png)
+![alt text](https://github.com/eric-hoppenworth/mathMe/images/screen3.png)
