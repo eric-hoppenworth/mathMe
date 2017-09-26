@@ -37,8 +37,9 @@ Practice will come in two basic forms:
 ![alt text](https://github.com/eric-hoppenworth/mathMe/blob/master/images/screen3.PNG)
 
 ## It is worth noting that mathMe is still very much in its production stages.
-	If you want to check out my progress, visit my Trello board.
-	[Trello Board](https://trello.com/b/4xqlA2ur).
 
-	A Generic version of my ToDo List can be found here
-	[ToDo](/images/toDo.txt)
+If you want to check out my progress, visit my Trello board.
+[Trello Board](https://trello.com/b/4xqlA2ur).
+
+A Generic version of my ToDo List can be found here
+[ToDo](./images/toDo.txt)
