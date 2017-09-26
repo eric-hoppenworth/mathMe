@@ -13,10 +13,9 @@
 .light-row {
 	background: #EBEBEB;
 	color: #2B3E50;
-	min-height: 500px;
 	vertical-align: middle;
 	padding-top: 100px;
-	padding bottom: 50px;
+	padding-bottom: 50px;
 }
 .light-row h4{
 	line-height: 150%;
@@ -28,6 +27,47 @@
 
 .footer{
 	background: #151515;
-	color: #eee;
-	padding-top: 25px;
+	color: #aaa;
+	padding-top: 10px;
+	font-size: 12px;
+}
+
+.quizCard {
+	margin: 25px;
+	padding: 25px;
+}
+.quizCard img {
+	width:40%;
+}
+
+.quizCardContainer{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.mjx-chtml{
+	font-size: 150% !important;
+}
+.MJXc-display{
+	margin:0 !important;
+	z-index: -1 !important;
+}
+.questionHolder{
+	margin-left: 25%;
+	margin-right: 25%;
+	width: 50%;
+}
+.questionHolder hr {
+	border-color: #EBEBEB;
+}
+
+#quizAnswer{
+	/*margin-top: -4em;*/
+	z-index: 1;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }

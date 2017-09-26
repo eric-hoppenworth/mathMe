@@ -20,7 +20,7 @@ module.exports = function (router) {
 			currQ: 0
 		}
 		for (var i = 0; i < numQ; i++){
-			var myQ = {}
+			var myQ = {};
 			myQ.left 	= Math.floor(Math.random() * Math.pow(10,diff) + 1);
 			myQ.right 	= Math.floor(Math.random() * Math.pow(10,diff) + 1);
 			//the larger number should always be on the left
