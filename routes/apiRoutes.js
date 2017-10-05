@@ -1,9 +1,8 @@
-var router = require("express").Router();
 var path = require("path");
 
-
 // module.exports = function (router, passport) {
-module.exports = function (router) {
+module.exports = function (passport) {
+	var router = require("express").Router();
 
 	router.get("/",function(req,res){
 		res.json( createQuiz(5,3,"+") );
@@ -61,6 +60,8 @@ module.exports = function (router) {
 		}//end switch
 		return answer;
 	}
+
+	return router;
 }
 
 // $$ \frac{\begin{array}[b]{r}\left. 15 \right. \\ \times \left. 25 \right. \end{array} }{ \left.  \right.} $$
