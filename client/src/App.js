@@ -18,12 +18,12 @@ class App extends React.Component {
 
 	componentWillMount(){
 	    axios.get("/auth/isAuthenticated").then((result)=>{
-	      console.log(result.data)
-	      if(result.data === true){
-	        this.setState({isAuthenticated: true})
-	      }else {
-	        this.setState({isAuthenticated: false})
-	      }
+	    	console.log(result.data)
+	    	const {userId, isAuthenticated} = result.data
+	        this.setState({
+	        	userId,
+	        	isAuthenticated
+	        })
 	    });
 	}
 
@@ -45,7 +45,7 @@ class App extends React.Component {
 			password: this.state.password
 		};
 		axios.post("/auth/login", newUser).then((data) => {
-			console.log(data.data);
+			// console.log(data.data);
 			if (data.data.isAuthenticated){
 			  this.setState({
 			  	userId: data.data.userId,
@@ -72,7 +72,20 @@ class App extends React.Component {
 			<Router>
 				<div>
 					<Switch>
-						<Route exact path = "/" render = {()=><Splash auth = { {userId: this.state.userId, isAuthenticated: this.state.isAuthenticated} }/>} />
+						<Route exact path = "/" render = { ()=> 
+							<Splash 
+								auth = {{
+									userId: this.state.userId, 
+									isAuthenticated: this.state.isAuthenticated
+								}}
+								inputs = {{
+									userName: this.state.userName,
+									password: this.state.password
+								}}
+								handleChange = {this.handleChange}
+								handleSubmit = {this.handleSubmit}
+							/>} 
+						/>
 						<Route exact path = "/home" render = {()=><Home/>} />
 						<Route exact path = "/features" render = {()=><Features/>} />
 						<Route exact path = "/about" render = {()=><About/>} />

@@ -18,7 +18,11 @@ const Splash = (props) =>{
 	return (
 		<div className = "container-fluid">
 			<Navbar />
-			<SignInForm />
+			<SignInForm 
+				userName = {props.inputs.userName} 
+				password = {props.inputs.password} 
+				handleChange = {props.handleChange} 
+				handleSubmit = {props.handleSubmit}/>
 			<InfoRow light = {true} info = {myInfo} />
 			<Footer />
 		</div>
