@@ -29,7 +29,7 @@ mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
 //add mongo heroku uri
 mongoose.connect(
-  "mongodb://localhost/mathMe",
+  MONGODB_URI || "mongodb://localhost/mathMe",
   {
     useMongoClient: true
   }
