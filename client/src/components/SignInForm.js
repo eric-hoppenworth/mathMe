@@ -18,10 +18,10 @@ class SignInForm extends React.Component{
 					    <label>Password</label>
 					    <input type="password" className="form-control" name = "password" value = {this.props.password} placeholder="Password" onChange = {this.props.handleChange} />
 					  </div>
-					  <button onClick = {this.props.handleSubmit} className="btn btn-primary">Submit</button>
+					  <button name = "login" onClick = {this.props.handleSubmit} className="btn btn-primary">Submit</button>
 					</form>
 					<p>Not a member?  No worries.</p>
-					<button className = "btn btn-secondary">Sign Up Here.</button>
+					<button name = "signup" onClick = {this.props.handleSubmit} className = "btn btn-secondary">Sign Up Here.</button>
 				</div>
 				<div className = "col"></div>
 	         </div>

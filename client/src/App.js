@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route,Switch } from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Splash from "./components/pages/Splash";
 import Home from "./components/pages/Home";
 import Features from "./components/pages/Features";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar"
 import About from "./components/pages/About";
 import axios from 'axios';
 
@@ -18,7 +20,6 @@ class App extends React.Component {
 
 	componentWillMount(){
 	    axios.get("/auth/isAuthenticated").then((result)=>{
-	    	console.log(result.data)
 	    	const {userId, isAuthenticated} = result.data
 	        this.setState({
 	        	userId,
@@ -44,7 +45,8 @@ class App extends React.Component {
 			email: this.state.userName,
 			password: this.state.password
 		};
-		axios.post("/auth/login", newUser).then((data) => {
+		const authPath = "/auth/" + event.target.name;
+		axios.post(authPath, newUser).then((data) => {
 			// console.log(data.data);
 			if (data.data.isAuthenticated){
 			  this.setState({
@@ -63,16 +65,20 @@ class App extends React.Component {
 	handleLogout = (event) => {
 	    event.preventDefault();
 	    axios.get("/auth/logout").then((result)=>{
-	      this.setState({isAuthenticated: false});
+	    	this.setState({
+	    		userId: "",
+	      		isAuthenticated: false
+	      	});
 	    })
 	};
 
 	render() {
 		return (
 			<Router>
-				<div>
+				<div className = "container-fluid">
+					<Navbar isAuthenticated = {this.state.isAuthenticated} handleLogout ={this.handleLogout} />
 					<Switch>
-						<Route exact path = "/" render = { ()=> 
+						<Route exact path = "/" render = { () => 
 							<Splash 
 								auth = {{
 									userId: this.state.userId, 
@@ -86,10 +92,18 @@ class App extends React.Component {
 								handleSubmit = {this.handleSubmit}
 							/>} 
 						/>
-						<Route exact path = "/home" render = {()=><Home/>} />
+						<Route exact path = "/home" render = { () =>
+							<Home
+								auth = {{
+									userId: this.state.userId, 
+									isAuthenticated: this.state.isAuthenticated
+								}}
+							/>} 
+						/>
 						<Route exact path = "/features" render = {()=><Features/>} />
 						<Route exact path = "/about" render = {()=><About/>} />
 					</Switch>
+					<Footer />
 				</div>	
 			</Router>
 		);
