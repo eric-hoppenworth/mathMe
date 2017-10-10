@@ -4,14 +4,14 @@ import InfoRow from "../InfoRow";
 class Features extends React.Component {
 
 	myInfo = [{
-		text: String.raw`$$ \frac{\begin{array}[b]{r}\left. 5 \right. \\ \times \left. 3 \right. \end{array}}{  15 }$$`,
+		text: String.raw`$$ \frac{\begin{array}[b]{r}\left. 54 \right. \\ + \left. 5 \right. \end{array} }{ \left.  \right.} $$`,
 		class: "mathItem"
 	},{
 		text: "This page will contain a more in-depth look at the features our site has to offer."
 	},{
 		text: "It will show a few different type of problems, and hopefully some pictures of the games."
 	},{
-		text: String.raw`$$ \frac{\begin{array}[b]{r}\left. 153 \right. \\ - \left. 76 \right. \end{array}}{  ? }$$`,
+		text: String.raw`$$ ${10} \overline{\smash{)} 200 } $$`,
 		class: "mathItem"
 	}];
 		

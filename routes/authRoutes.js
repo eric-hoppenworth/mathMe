@@ -2,6 +2,7 @@ const path = require("path");
 
 module.exports = function(passport) {
 	const router = require('express').Router();
+	
 	router.get("/isAuthenticated",function(req,res){
 		if (req.isAuthenticated()){
 			res.json({

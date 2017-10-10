@@ -7,7 +7,7 @@ const QuizCard = (props) => {
             <div className="card-body">
                 <h4 className="card-title">{props.title}</h4>
                 <p className="card-text">{props.text}</p>
-                <button className="btn btn-primary" onClick = {props.handleClick}>Start</button>
+                <button className="btn btn-primary" name = {props.title} onClick = {props.handleClick}>Start</button>
             </div>
         </div>
 	);

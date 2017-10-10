@@ -16,7 +16,7 @@ class CardHolder extends React.Component {
 		                	title = {"Addition"} 
 		                	text = {"Practice your addition skills"} 
 		                	image = {require("../images/add.png")} 
-		                	handleClick = {()=>false} 
+		                	handleClick = {this.props.handleClick} 
 		                />
 		            </div>
 		            <div className = "col">
@@ -24,7 +24,7 @@ class CardHolder extends React.Component {
 		            		title = {"Subtraction"} 
 		            		text = {"Practice your subtraction skills"} 
 		            		image = {require("../images/minus.png")} 
-		            		handleClick = {()=>false} 
+		            		handleClick = {this.props.handleClick} 
 		            	/>
 		            </div>
 		        </div>
@@ -34,7 +34,7 @@ class CardHolder extends React.Component {
 		                	title = {"Multiplication"} 
 		                	text = {"Practice your multiplication skills"} 
 		                	image = {require("../images/mult.png")} 
-		                	handleClick = {()=>false} 
+		                	handleClick = {this.props.handleClick} 
 		                />
 		            </div>
 		            <div className = "col">
@@ -42,7 +42,7 @@ class CardHolder extends React.Component {
 		                	title = {"Division"} 
 		                	text = {"Practice your division skills"} 
 		                	image = {require("../images/divide.png")} 
-		                	handleClick = {()=>false} 
+		                	handleClick = {this.props.handleClick} 
 		                />
 		            </div>
 		        </div>
