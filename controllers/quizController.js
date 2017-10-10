@@ -40,7 +40,7 @@ module.exports = {
 
 		const myQuiz = {
 			questions: [],
-			currQuestion: 0,
+			currentQuestion: 0,
 			difficulty: diff,
 			opp: opp,
 			userId: id,
@@ -97,6 +97,20 @@ module.exports = {
 				res.send({numberCorrect: total, numberQuestions: doc.questions.length});
 			});
 		});
+	},
+	updateQuestion: function(req,res){
+		//updates a questions 'response' when it is answered
+		//also moves to the next question
+		const response = req.body.response;
+		const id = req.body.quizId;
+		models.Quiz.findById(id,function(err,doc){
+			doc.questions[doc.currentQuestion].response = response;
+			doc.currentQuestion++;
+			doc.save(function(err, result){
+				res.send(result);
+			})
+
+		})
 	}
 
 }
