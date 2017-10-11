@@ -2,39 +2,30 @@ import React from 'react';
 import { Redirect } from "react-router-dom";
 import CardHolder from "../CardHolder";
 import CreateQuiz from "../CreateQuiz";
+import QuizSection from "../QuizSection";
 
 class Home extends React.Component {
 	state = {
-		activeQuiz: null,
-		createQuiz: null
+		activeModal: null
 	}
 
 	handleClick = (event) => {
 		const opp = event.target.name;
 
-		switch (opp) {
-			case "Addition":
-				
-			case "Subtraction":
-
-			case "Multiplication":
-
-			case "Division":
-				//show create quiz 'modal'
-				this.setState({
-					createQuiz: <CreateQuiz opp= {opp} />
-				})
-				break;
-			case "Current":
-				//get quiz marked current
-				//show question marked current
-				//display question
-				//currentQuiz will be a JSX element
-				//setState({
-				//	activeQuiz: currentQuiz
-				//})
-				break;
+		if ( opp === "Current"){
+			//get quiz marked current
+			//show question marked current
+			//display question
+			//currentQuiz will be a JSX element
+			this.setState({
+				activeModal: <QuizSection />
+			});
+		} else {
+			this.setState({
+				activeModal: <CreateQuiz opp= {opp} />
+			});
 		}
+	
 	}
 
 	render(){
@@ -48,8 +39,7 @@ class Home extends React.Component {
 			                <button className = "btn btn-primary" name= "Current" onClick = { this.handleClick }>Get back to where you left off</button>
 			            </div>
 			        </div>
-			        {this.state.createQuiz}
-			        {this.state.currentQuiz}
+			        {this.state.activeModal}
 			       <CardHolder handleClick = {this.handleClick} />
 				</div>
 			);

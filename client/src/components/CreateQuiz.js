@@ -52,7 +52,7 @@ class CreateQuiz extends React.Component {
 						<option value="Division">Division</option>
 					</select>
 				</div>
-				<div className = "col">
+				<div className = "col infoItem">
 					<button className = "btn btn-primary" onClick = {this.handleSubmit}> Get Quiz </button>
 				</div>
 			</div>

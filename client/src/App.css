@@ -15,6 +15,11 @@
   color: #2B3E50;
   vertical-align: middle;
 }
+.quiz-row, .create-quiz{
+  padding-top: 100px;
+  padding-bottom: 100px;
+  border: #2B3E50 solid 30px;
+}
 
 .infoItem {
   padding-top: 50px;

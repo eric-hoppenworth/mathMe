@@ -108,9 +108,15 @@ module.exports = {
 			doc.currentQuestion++;
 			doc.save(function(err, result){
 				res.send(result);
-			})
-
-		})
+			});
+		});
+	},
+	getCurrent: function(req,res){
+		//untested
+		const id = req.user._id;
+		models.Quiz.findOne({userId: id, isCurrent: true}).then(function(err, doc){
+			res.send(doc);
+		});
 	}
 
 }

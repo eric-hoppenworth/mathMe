@@ -4,7 +4,7 @@ const quizController = require("../controllers/quizController.js");
 module.exports = function (passport) {
 	const router = require("express").Router();
 
-	router.post("/getQuiz",quizController.createQuiz);
+	router.post("/getNewQuiz",quizController.createQuiz);
 	router.post("/completeQuiz",quizController.markComplete);
 	router.post("/updateQuestion",quizController.updateQuestion);
 

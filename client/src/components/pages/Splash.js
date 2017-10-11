@@ -22,7 +22,7 @@ class Splash extends React.Component {
 						userName = {this.props.inputs.userName} 
 						password = {this.props.inputs.password} 
 						handleChange = {this.props.handleChange} 
-						handleSubmit = {this.props.handleSubmit}/>
+						handleSubmit = {this.props.handleSubmit} />
 					<InfoRow light = {true} info = {this.myInfo} />
 				</div>
 			)
