@@ -7,11 +7,13 @@ module.exports = function(passport) {
 		if (req.isAuthenticated()){
 			res.json({
 				userId: req.user._id,
+				username: req.user.username,
 				isAuthenticated: true
 			});
 		} else {
 			res.json({
 				userId: null,
+				username: req.user.username,
 				isAuthenticated: false
 			});
 		}
@@ -39,6 +41,7 @@ module.exports = function(passport) {
 		// console.log(req.user);
 		res.json({
 			userId: req.user._id,
+			username: req.user.username,
 			isAuthenticated: true
 		});
 	});
@@ -46,6 +49,7 @@ module.exports = function(passport) {
 	router.get("/failure", function (req, res) {
 		res.json({
 			userId: null,
+			username: req.user.username,
 			isAuthenticated: false
 		});
 	});

@@ -12,8 +12,14 @@ const Navbar = (props) => {
 				<ul className="navbar-nav mr-auto">
 					{props.isAuthenticated &&
 						(<li className="nav-item">
-							<Link className="nav-link" to="/home">Home <span className="sr-only">(current)</span></Link>
+							<Link className="nav-link" to="/home">Home </Link>
 						</li>)
+					}
+					{props.isAuthenticated &&
+						(<li className="nav-item">
+							<Link className="nav-link" to="/statistics">Statistics</Link>
+						</li>
+						)
 					}
 					<li className="nav-item">
 						<Link className="nav-link" to="/features">Features</Link>

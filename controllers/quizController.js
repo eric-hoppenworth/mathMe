@@ -76,9 +76,11 @@ module.exports = {
 				if(err){
 					return err;
 				}
-				console.log(result.getLatex(0));
-				console.log(result.getLatex(1));
-				res.send(result);
+				const latex = [];
+				for(let i = 0 ; i < result.questions.length; i++){
+					latex[i] = result.getLatex(i);
+				}
+				res.send({doc:result,latex});
 			});
 		});
 	},
@@ -93,8 +95,16 @@ module.exports = {
 					total ++;
 				}
 			}
-			doc.update({numberCorrect: total, isCurrent:false},function(err, data){
-				res.send({numberCorrect: total, numberQuestions: doc.questions.length});
+			doc.numberCorrect= total;
+			doc.isCurrent = false;
+
+			doc.save(function(err, updatedDoc){
+				if(err){return err;	}
+				const latex = [];
+				for(let i = 0 ; i < updatedDoc.questions.length; i++){
+					latex[i] = updatedDoc.getLatex(i);
+				}
+				res.send({doc: updatedDoc, latex});
 			});
 		});
 	},
@@ -107,16 +117,58 @@ module.exports = {
 			doc.questions[doc.currentQuestion].response = response;
 			doc.currentQuestion++;
 			doc.save(function(err, result){
-				res.send(result);
+				const latex = [];
+				for(let i = 0 ; i < result.questions.length; i++){
+					latex[i] = result.getLatex(i);
+				}
+				res.send({doc:result,latex});
 			});
 		});
 	},
 	getCurrent: function(req,res){
-		//untested
 		const id = req.user._id;
-		models.Quiz.findOne({userId: id, isCurrent: true}).then(function(err, doc){
-			res.send(doc);
+
+		models.Quiz.findOne({userId: id, isCurrent: true}).then(function(doc){
+			const latex = [];
+			for(let i = 0 ; i < doc.questions.length; i++){
+				latex[i] = doc.getLatex(i);
+			}
+			res.send({doc,latex});
+		}).catch(function(err){
+			if(err) return err;
 		});
+	},
+	getScores: function(req,res){
+		const id = req.user ? req.user._id : mongoose.Types.ObjectId("59d5a41b770d2811a89ffa64");
+		const results = {
+			"+": {
+				correct: 0,
+				total: 0
+			},
+			"-": {
+				correct: 0,
+				total: 0
+			},
+			"*": {
+				correct: 0,
+				total: 0
+			},
+			"/": {
+				correct: 0,
+				total: 0
+			}
+		}
+
+		models.Quiz.find({userId: id, isCurrent: false}).then(function(data){
+			for(let i = 0 ; i <data.length; i++){
+				const quiz = data[i];
+				results[quiz.opp].correct += quiz.numberCorrect;
+				results[quiz.opp].total += quiz.questions.length;
+			}
+			res.send(results);
+		}).catch(function(err){
+			if(err) return err;
+		})
 	}
 
 }

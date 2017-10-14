@@ -37,13 +37,7 @@ quizSchema.methods.getLatex = function(index){
 		}
 		formulaString = String.raw`$$ \frac{\begin{array}[b]{r}\left. ${this.questions[index].left} \right. \\ ${oppString} \left. ${this.questions[index].right} \right. \end{array} }{ \left.  \right.} $$`
 	}
-	// let formulaString = String.raw`$$ \frac{\begin{array}[b]{r}\left. `
-	// formulaString += this.questions[index].left 
-	// formulaString += String.raw` \right. \\`
-	
-	// formulaString += String.raw`\left. `;
-	// formulaString += this.questions[index].right ;
-	// formulaString += String.raw` \right. \end{array} }{ \left.  \right.} $$`;
+
 	return formulaString;
 };
 

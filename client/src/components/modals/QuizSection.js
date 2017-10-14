@@ -1,24 +1,27 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+// import ReactDom from 'react-dom';
 import MathJax from 'react-mathjax-preview';
 class QuizSection extends React.Component {
 	
 	equation = String.raw`$$ \frac{\begin{array}[b]{r}\left. 54 \right. \\ + \left. 5 \right. \end{array} }{ \left.  \right.} $$`
-
+	
 	render(){
+		const questionNumber = this.props.quiz.doc.currentQuestion + 1;
+		const totalQuestions = this.props.quiz.latex.length;
+		const equation = this.props.quiz.latex[questionNumber-1];
 		return (
 			<div className = "row light-row quiz-row text-center">
 				<div className = "col-12">
-					<h1>Question 1 of 10 </h1>
+					<h1>Question {questionNumber} of {totalQuestions} </h1>
 				</div>
 				<div className = "col mathItem">
-					<MathJax math = {this.equation} />
+					<MathJax math = {equation} />
 				</div>
 				<div className = "col infoItem">
-					<input type = "number" />
+					<input onChange={this.props.handleChange} type = "number" name="response" value={this.props.inputs.response} />
 					<br />
 					<br />
-					<button className = "btn btn-primary">Submit</button>
+					<button onClick = {this.props.handleSubmit} className = "btn btn-primary">Submit</button>
 				</div>
 			</div> 
 		);
