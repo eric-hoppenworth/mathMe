@@ -13,7 +13,7 @@ module.exports = function(passport) {
 		} else {
 			res.json({
 				userId: null,
-				username: req.user.username,
+				username: null,
 				isAuthenticated: false
 			});
 		}

@@ -32,9 +32,9 @@ function removeCurrentQuiz(userId){
 
 module.exports = {
 	createQuiz: function(req, res){
-		const numQ = req.body.n;
-		const diff = req.body.d;
-		const opp = req.body.o;
+		let numQ = req.body.n;
+		let diff = req.body.d;
+		let opp = req.body.o;
 		const id = req.user ? req.user._id : mongoose.Types.ObjectId("59d5a41b770d2811a89ffa64"); //default value for testing with postman
 
 
@@ -46,6 +46,25 @@ module.exports = {
 			userId: id,
 			isCurrent: true
 		};
+		//little bit of validation
+		if(!(opp === "+" || opp === "-" || opp === "*" || opp === "/")){ 
+			res.json({status: 400, message:"Please use only the arithmetic opperators: '+' '-' '*' or '/' ",postScript:"be sure that you do NOT include quotes ('') in your query"})
+		}
+		if(isNaN(numQ) || isNaN(diff)){
+			res.json({status:400, message: "Be sure to use only numbers for parameters 'n' and 'd'",postScript:"As a note, the maximum number of questions is 50 and the maximum difficulty is 8(for multiplication and division) or 15 (for addition and subtraction)"})
+		}
+		//maximum question count is 50
+		if(numQ > 50){
+			numQ = 50;
+		}
+		//max difficulty is 8 for mult and division, 15 for others(will multiplication overflow?)
+		if(diff > 8 && opp === "/"){
+			diff = 8;
+		} else if(diff > 8 && opp === "*"){
+			diff = 8;
+		} else if(diff > 15){
+			diff = 15;
+		} 
 
 		for (let i = 0; i < numQ; i++){
 			const myQ = {};
