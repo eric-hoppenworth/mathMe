@@ -7,11 +7,25 @@ module.exports = function(){
 		let diff = parseInt(req.query.d);
 		let opp = req.query.o;
 
-		if(!(opp === "+" || opp === "-" || opp === "*" || opp === "/")){ 
-			res.send({status: 400, message:"Please use only the arithmetic opperators: '+' '-' '*' or '/' ",postScript:"be sure that you do NOT include quotes ('') in your query"})
+		if(!(opp === "add" || opp === "subtract" || opp === "multiply" || opp === "divide")){ 
+			res.send({status: 400, message:"Please use the word for the opperation you want: 'add' 'subtract' 'multiply' or 'divide' ",postScript:"be sure that you do NOT include quotes ('') in your query"})
 		}
 		if(isNaN(numQ) || isNaN(diff)){
 			res.send({status:400, message: "Be sure to use only numbers for parameters 'n' and 'd'",postScript:"As a note, the maximum number of questions is 50 and the maximum difficulty is 8(for multiplication and division) or 15 (for addition and subtraction)"})
+		}
+		switch(opp){
+			case "add":
+				opp = "+";
+				break;
+			case "subtract":
+				opp = '-';
+				break;
+			case "multiply":
+				opp = '*';
+				break;
+			case "divide":
+				opp = '/';
+				break;
 		}
 		//maximum question count is 50
 		if(numQ > 50){
