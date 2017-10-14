@@ -17,6 +17,7 @@ class Home extends React.Component {
 	}
 
 	handleClick = (event) => {
+		event.preventDefault();
 		const opp = event.target.name;
 
 		if ( opp === "Current"){
@@ -83,6 +84,7 @@ class Home extends React.Component {
 		}).catch((err)=>{ return console.log(err)});
 	}
 	handleQuizSubmit = (event) =>{
+		event.preventDefault();
 		//if I am not on the last question, update
 		const total = this.state.quiz.latex.length;
 		const current = this.state.quiz.doc.currentQuestion + 1;

@@ -18,10 +18,10 @@ class QuizSection extends React.Component {
 					<MathJax math = {equation} />
 				</div>
 				<div className = "col infoItem">
-					<input onChange={this.props.handleChange} type = "number" name="response" value={this.props.inputs.response} />
-					<br />
-					<br />
-					<button onClick = {this.props.handleSubmit} className = "btn btn-primary">Submit</button>
+					<form>
+						<input onChange={this.props.handleChange} type = "number" name="response" value={this.props.inputs.response} />
+						<button onClick = {this.props.handleSubmit} className = "btn btn-primary">Submit</button>
+					</form>
 				</div>
 			</div> 
 		);

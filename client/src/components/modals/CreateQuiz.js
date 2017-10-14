@@ -30,7 +30,7 @@ class CreateQuiz extends React.Component {
 							<select name = "opp" onChange = {this.props.handleChange} value ={this.props.inputs.opp}>
 								<option value="Addition">Addition</option>
 								<option value="Subtraction">Subtraction</option>
-								<option value="Multipication">Multiplication</option>
+								<option value="Multiplication">Multiplication</option>
 								<option value="Division">Division</option>
 							</select>
 						</div>

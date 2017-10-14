@@ -20,6 +20,15 @@
   padding-bottom: 100px;
   border: #2B3E50 solid 30px;
 }
+.results-row {
+  border: #2B3E50 solid 30px;
+}
+.results-row h2 {
+  background: #DF691A;
+  padding: 10px;
+  color: #EBEBEB;
+  border: #2B3E50 solid 2px;
+}
 
 .infoItem {
   padding-top: 50px;
@@ -82,15 +91,16 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .back-bar {
-  background: black;
+  background: #151515;
   padding:5px;
   height: 30px;
 }
 .bar{
-  background: lightblue;
+  background: #DF691A;
   height: 100%;
 }
 .with-border {
   border: #2B3E50 solid 20px;
   padding: 25px;
 }
+
