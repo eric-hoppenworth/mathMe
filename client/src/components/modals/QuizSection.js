@@ -1,9 +1,15 @@
 import React from 'react';
-// import ReactDom from 'react-dom';
+import ReactDom from 'react-dom';
 import MathJax from 'react-mathjax-preview';
 class QuizSection extends React.Component {
 	
-	equation = String.raw`$$ \frac{\begin{array}[b]{r}\left. 54 \right. \\ + \left. 5 \right. \end{array} }{ \left.  \right.} $$`
+	componentDidMount = () => {
+		ReactDom.findDOMNode(this).scrollIntoView(); 
+	}
+
+	componentDidUpdate = () => { 
+		ReactDom.findDOMNode(this).scrollIntoView(); 
+	}
 	
 	render(){
 		const questionNumber = this.props.quiz.doc.currentQuestion + 1;

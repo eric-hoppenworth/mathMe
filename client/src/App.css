@@ -1,4 +1,3 @@
-
 .signInForm{
   border: 1px solid black;
   background: #EBEBEB;
@@ -20,19 +19,35 @@
   padding-bottom: 100px;
   border: #2B3E50 solid 30px;
 }
+
 .results-row {
   border: #2B3E50 solid 30px;
 }
 .results-row h2 {
   background: #DF691A;
-  padding: 10px;
   color: #EBEBEB;
   border: #2B3E50 solid 2px;
+}
+.resultItem {
+  padding: 10px;
+  padding-bottom: 50px;
 }
 
 .infoItem {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+.correct{
+  background: rgba(92, 184, 92, 0.6);
+  margin-left:-2px;
+  margin-right: -2px;
+  padding-top:10px;
+}
+.incorrect{
+  background: rgba(217, 83, 79, 0.6);
+  margin-left:-2px;
+  margin-right: -2px;
+  padding-top:10px;
 }
 
 .infoItem h4 {
