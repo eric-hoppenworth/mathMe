@@ -118,4 +118,7 @@ input[type=number]::-webkit-outer-spin-button {
   border: #2B3E50 solid 20px;
   padding: 25px;
 }
-
+.margins{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

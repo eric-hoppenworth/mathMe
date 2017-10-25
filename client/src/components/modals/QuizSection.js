@@ -25,7 +25,7 @@ class QuizSection extends React.Component {
 				</div>
 				<div className = "col infoItem">
 					<form>
-						<input onChange={this.props.handleChange} type = "number" name="response" value={this.props.inputs.response} />
+						<input style= {{marginRight: "10px"}} onChange={this.props.handleChange} type = "number" name="response" value={this.props.inputs.response} />
 						<button onClick = {this.props.handleSubmit} className = "btn btn-primary">Submit</button>
 					</form>
 				</div>

@@ -83,6 +83,7 @@ class Home extends React.Component {
 			});
 		}).catch((err)=>{ return console.log(err)});
 	}
+	
 	handleQuizSubmit = (event) =>{
 		event.preventDefault();
 		//if I am not on the last question, update

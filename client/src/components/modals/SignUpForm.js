@@ -1,7 +1,16 @@
 import React from "react";
+import ReactDom from "react-dom";
 
-class SIgnUpForm extends React.Component{
-	
+class SignUpForm extends React.Component{
+		
+	componentDidMount = () => {
+		ReactDom.findDOMNode(this).scrollIntoView(); 
+	}
+
+	componentDidUpdate = () => { 
+		ReactDom.findDOMNode(this).scrollIntoView(); 
+	}
+
 	render() {
 		return (
 			<div className = "row signInRow">
@@ -35,4 +44,4 @@ class SIgnUpForm extends React.Component{
 };
 
 
-export default SIgnUpForm;
+export default SignUpForm;
