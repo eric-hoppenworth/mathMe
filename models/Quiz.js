@@ -16,29 +16,33 @@ const quizSchema = new Schema({
 	userId: {type: Schema.Types.ObjectId, ref: 'UserData'}
 });
 
-quizSchema.methods.getLatex = function(index){
-	let formulaString = "";
-	if(this.opp === "/"){
-		formulaString = String.raw`$$ ${this.questions[index].right} \overline{\smash{)} ${this.questions[index].left} } $$`
-	} else {
-		let oppString = "";
-		switch(this.opp){
-		case "+":
-			oppString += " + ";
-			break;
-		case "-":
-			oppString += " - ";
-			break;
-		case "*":
-			oppString += String.raw` \times `;
-			break;
-		default:
-			break;
+quizSchema.methods.getLatex = function(){
+	const latex = [];
+	for (let i = 0; i < this.questions.length;i++){
+		let formulaString = "";
+		if(this.opp === "/"){
+			formulaString = String.raw`$$ ${this.questions[i].right} \overline{\smash{)} ${this.questions[i].left} } $$`
+		} else {
+			let oppString = "";
+			switch(this.opp){
+			case "+":
+				oppString += " + ";
+				break;
+			case "-":
+				oppString += " - ";
+				break;
+			case "*":
+				oppString += String.raw` \times `;
+				break;
+			default:
+				break;
+			}
+			formulaString = String.raw`$$ \frac{\begin{array}[b]{r}\left. ${this.questions[i].left} \right. \\ ${oppString} \left. ${this.questions[i].right} \right. \end{array} }{ \left.  \right.} $$`
 		}
-		formulaString = String.raw`$$ \frac{\begin{array}[b]{r}\left. ${this.questions[index].left} \right. \\ ${oppString} \left. ${this.questions[index].right} \right. \end{array} }{ \left.  \right.} $$`
-	}
 
-	return formulaString;
+		latex.push(formulaString);
+	}
+	return latex;
 };
 
 const Quiz = mongoose.model("Quiz", quizSchema);

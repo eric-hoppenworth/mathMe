@@ -5,11 +5,20 @@ import ReactDom from 'react-dom';
 class Results extends React.Component{
 
 	componentDidMount = () => {
-		ReactDom.findDOMNode(this).scrollIntoView(); 
+		if(!this.props.snap){
+			//do nothing
+		} else{
+			ReactDom.findDOMNode(this).scrollIntoView(); 
+		}
+
 	}
 
 	componentDidUpdate = () => { 
-		ReactDom.findDOMNode(this).scrollIntoView(); 
+		if(!this.props.snap){
+			//do nothing
+		} else{
+			ReactDom.findDOMNode(this).scrollIntoView(); 
+		}
 	}
 
 	render(){

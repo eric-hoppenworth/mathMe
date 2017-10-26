@@ -10,6 +10,8 @@ module.exports = function (passport) {
 	router.post("/updateQuestion",quizController.updateQuestion);
 	router.get("/currentQuiz",quizController.getCurrent);
 	router.post("/getScores",quizController.getScores);
+	router.get("/getPrevious",quizController.getPrevious);
+	router.post("/getPreviousOpp",quizController.getPreviousOpp);
 
 	return router;
 }

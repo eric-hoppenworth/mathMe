@@ -5,7 +5,7 @@ module.exports = function (passport) {
 	const authRoutes = require("./authRoutes.js")(passport);
 	const publicRoutes = require("./publicApi.js")();
 	// API Routes
-	router.use("/api",isLoggedIn, apiRoutes);
+	router.use("/api", apiRoutes);
 	router.use("/auth", authRoutes);
 	//this is for the public quiz generator API
 	router.use("/public/api", publicRoutes);

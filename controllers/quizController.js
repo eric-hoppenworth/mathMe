@@ -22,14 +22,6 @@ function getSolution(left,right,opp){
 	return answer;
 }
 
-function removeCurrentQuiz(userId){
-	models.Quiz
-		.find({userId: userID, isCurrent: true})
-		.then((data)=>{
-			return data;
-		})
-}
-
 module.exports = {
 	createQuiz: function(req, res){
 		let numQ = req.body.n;
@@ -95,10 +87,7 @@ module.exports = {
 				if(err){
 					return err;
 				}
-				const latex = [];
-				for(let i = 0 ; i < result.questions.length; i++){
-					latex[i] = result.getLatex(i);
-				}
+				const latex = result.getLatex();
 				res.send({doc:result,latex});
 			});
 		});
@@ -119,10 +108,7 @@ module.exports = {
 
 			doc.save(function(err, updatedDoc){
 				if(err){return err;	}
-				const latex = [];
-				for(let i = 0 ; i < updatedDoc.questions.length; i++){
-					latex[i] = updatedDoc.getLatex(i);
-				}
+				const latex = updatedDoc.getLatex();
 				res.send({doc: updatedDoc, latex});
 			});
 		});
@@ -136,10 +122,7 @@ module.exports = {
 			doc.questions[doc.currentQuestion].response = response;
 			doc.currentQuestion++;
 			doc.save(function(err, result){
-				const latex = [];
-				for(let i = 0 ; i < result.questions.length; i++){
-					latex[i] = result.getLatex(i);
-				}
+				const latex = result.getLatex();
 				res.send({doc:result,latex});
 			});
 		});
@@ -148,10 +131,7 @@ module.exports = {
 		const id = req.user._id;
 
 		models.Quiz.findOne({userId: id, isCurrent: true}).then(function(doc){
-			const latex = [];
-			for(let i = 0 ; i < doc.questions.length; i++){
-				latex[i] = doc.getLatex(i);
-			}
+			const latex = doc.getLatex();
 			res.send({doc,latex});
 		}).catch(function(err){
 			if(err) return err;
@@ -188,6 +168,34 @@ module.exports = {
 		}).catch(function(err){
 			if(err) return err;
 		})
+	},
+	getPrevious: function(req,res){
+		const id = req.user ? req.user._id : mongoose.Types.ObjectId("59d5a41b770d2811a89ffa64");
+		const totalQuizez = 5;
+
+		models.Quiz.find({userId: id, isCurrent:false}).sort({_id: -1}).limit(totalQuizez).then(function(data){
+			//get the latex for these too?
+			const latex = [];
+			for (let i = 0; i <data.length;i++){
+				latex.push(data[i].getLatex())
+			}
+			res.send({doc:data,latex});
+		});
+	},
+	getPreviousOpp: function(req,res){
+		//collects all quizes of a specific opperation
+		const id = req.user ? req.user._id : mongoose.Types.ObjectId("59d5a41b770d2811a89ffa64");
+		const opp = req.body.opp;
+		const totalQuizez = 5;
+
+		models.Quiz.find({userId: id, isCurrent:false, opp: opp}).sort({_id:-1}).limit(totalQuizez).then(function(data){
+			//get the latex too
+			const latex = [];
+			for (let i = 0; i <data.length;i++){
+				latex.push(data[i].getLatex())
+			}
+			res.send({doc:data,latex});
+		});
 	}
 
 }
