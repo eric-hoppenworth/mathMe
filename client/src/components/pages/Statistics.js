@@ -113,7 +113,7 @@ class Statistics extends React.Component {
 			        </div>
 			        { this.state.previousQuizzes[0] ?
 			        	this.state.previousQuizzes.map((item, index)=>{
-			        		return <Results snap={false} quiz={item} />
+			        		return <Results noSnap={true} quiz={item} />
 			        	}) :
 			        	null
 			        }

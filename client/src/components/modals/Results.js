@@ -5,7 +5,7 @@ import ReactDom from 'react-dom';
 class Results extends React.Component{
 
 	componentDidMount = () => {
-		if(!this.props.snap){
+		if(this.props.noSnap){
 			//do nothing
 		} else{
 			ReactDom.findDOMNode(this).scrollIntoView(); 
@@ -14,7 +14,7 @@ class Results extends React.Component{
 	}
 
 	componentDidUpdate = () => { 
-		if(!this.props.snap){
+		if(this.props.noSnap){
 			//do nothing
 		} else{
 			ReactDom.findDOMNode(this).scrollIntoView(); 
