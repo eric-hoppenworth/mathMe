@@ -21,12 +21,12 @@ class Features extends React.Component {
 					<div className = "col-6">
 						<h3> Difficulty level-</h3>
 						<p><code> d: Integer </code></p>
-						<p>Specify the number of digits of the opperands.  Maximum for addition and subtraction is 15.  Maximum for multiplication and division is 8.</p>
+						<p>Specify the number of digits of the operands.  Maximum for addition and subtraction is 15.  Maximum for multiplication and division is 8.</p>
 					</div>
 					<div className = "col-6">
 						<h3> Opperation-</h3>
 						<p><code> o: String </code></p>
-						<p>Specify the opperation you want for your problems.  There are four options: add, subtract, multiply, divide.</p>
+						<p>Specify the operation you want for your problems.  There are four options: add, subtract, multiply, divide.</p>
 					</div>
 				</div>
 				<div className="row light-row text-center with-border">
